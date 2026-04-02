@@ -1,0 +1,67 @@
+/* Custom styles (Tailwind is loaded via CDN in index.html) */
+:root {
+  color-scheme: light;
+}
+.glass {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Reduce motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Nice focus rings */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.35);
+  border-radius: 0.75rem;
+}
+
+/* Light-mode patch (applies when JS sets html[data-theme="light"]) */
+html[data-theme="light"] .glass {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+html[data-theme="light"] body {
+  background: #f8fafc;
+}
+html[data-theme="light"] header {
+  background: rgba(248, 250, 252, 0.75) !important;
+}
+html[data-theme="light"] .text-slate-300 {
+  color: rgba(15, 23, 42, 0.7) !important;
+}
+html[data-theme="light"] .text-slate-200,
+html[data-theme="light"] .text-slate-200\/90 {
+  color: rgba(15, 23, 42, 0.86) !important;
+}
+html[data-theme="light"] .border-white\/10 {
+  border-color: rgba(15, 23, 42, 0.1) !important;
+}
+html[data-theme="light"] .bg-white\/5 {
+  background-color: rgba(15, 23, 42, 0.04) !important;
+}
+html[data-theme="light"] .bg-white\/10 {
+  background-color: rgba(15, 23, 42, 0.06) !important;
+}
+html[data-theme="light"] .bg-slate-950\/40 {
+  background-color: rgba(255, 255, 255, 0.7) !important;
+}
+html[data-theme="light"] .bg-slate-900\/80 {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+}
+html[data-theme="light"] .selection\:bg-indigo-500\/30::selection {
+  background: rgba(99, 102, 241, 0.25) !important;
+}

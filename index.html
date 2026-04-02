@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mukesh Kumar — Frontend developer portfolio and capstone project overview (HTML, CSS, JavaScript)." />
+  <title>Mukesh Kumar | Capstone Project Portfolio</title>
+
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style>
+    /* Small enhancements not covered by Tailwind utilities */
+    :root { color-scheme: light; }
+    .glass { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+
+    /* Reduce motion accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      html:focus-within { scroll-behavior: auto !important; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+    }
+
+    /* Nice focus rings */
+    :focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.35); border-radius: 0.75rem; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 selection:bg-indigo-500/30 selection:text-white">
+  <!-- Background -->
+  <div class="fixed inset-0 -z-10">
+    <div class="absolute inset-0 bg-[radial-gradient(1200px_circle_at_20%_10%,rgba(99,102,241,0.20),transparent_55%),radial-gradient(900px_circle_at_80%_20%,rgba(16,185,129,0.16),transparent_60%),radial-gradient(900px_circle_at_50%_90%,rgba(236,72,153,0.10),transparent_55%)]"></div>
+    <div class="absolute inset-0 opacity-30 [background-image:linear-gradient(to_right,rgba(148,163,184,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.12)_1px,transparent_1px)] [background-size:48px_48px]"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/70 to-slate-950"></div>
+  </div>
+
+  <!-- Top Nav -->
+  <header class="sticky top-0 z-40 border-b border-white/10 bg-slate-950/60 glass">
+    <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between gap-3">
+      <a href="#top" class="flex items-center gap-3 min-w-0">
+        <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-indigo-500 via-fuchsia-500 to-emerald-400"></div>
+        <div class="min-w-0">
+          <div class="font-semibold leading-tight truncate">Mukesh Kumar</div>
+          <div class="text-xs text-slate-300 truncate">HTML • CSS • JavaScript</div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-1 text-sm" aria-label="Primary">
+        <a class="px-3 py-2 rounded-xl hover:bg-white/5 text-slate-200" href="#about">About</a>
+        <a class="px-3 py-2 rounded-xl hover:bg-white/5 text-slate-200" href="#project">Project</a>
+        <a class="px-3 py-2 rounded-xl hover:bg-white/5 text-slate-200" href="#steps">Steps</a>
+        <a class="px-3 py-2 rounded-xl hover:bg-white/5 text-slate-200" href="#contact">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <button id="themeBtn" type="button" class="px-3 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-sm" aria-pressed="false" title="Toggle theme">
+          <span class="inline-flex items-center gap-2">
+            <span aria-hidden="true">◐</span>
+            <span class="hidden sm:inline">Theme</span>
+          </span>
+        </button>
+        <button id="menuBtn" type="button" class="md:hidden px-3 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-sm" aria-expanded="false" aria-controls="mobileMenu">
+          Menu
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="md:hidden hidden border-t border-white/10">
+      <nav class="mx-auto max-w-6xl px-4 py-2 grid gap-1" aria-label="Mobile">
+        <a class="px-3 py-2 rounded-xl hover:bg-white/5 text-slate-200" href="#about">About</a>
+        <a class="px-3 py-2 rounded-xl hover:bg-white/5 text-slate-200" href="#project">Project</a>
+        <a class="px-3 py-2 rounded-xl hover:bg-white/5 text-slate-200" href="#steps">Steps</a>
+        <a class="px-3 py-2 rounded-xl hover:bg-white/5 text-slate-200" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="mx-auto max-w-6xl px-4">
+    <!-- Hero -->
+    <section class="pt-10 pb-8 md:pt-14 md:pb-10">
+      <div class="grid md:grid-cols-12 gap-6 items-start">
+        <div class="md:col-span-7">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs text-slate-200">
+            <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+            <span>Capstone Project Portfolio</span>
+          </div>
+          <h1 class="mt-4 text-3xl md:text-5xl font-semibold tracking-tight">
+            Mukesh Kumar
+          </h1>
+          <p class="mt-3 text-slate-200/90 text-base md:text-lg leading-relaxed">
+            Frontend web application built with <span class="font-medium text-white">HTML</span>, <span class="font-medium text-white">CSS</span>, and <span class="font-medium text-white">JavaScript</span>—focused on performance, responsiveness, and cross-browser compatibility.
+          </p>
+
+          <div class="mt-5 flex flex-wrap gap-2" aria-label="Skills">
+            <span class="px-3 py-1.5 rounded-full bg-indigo-500/15 border border-indigo-400/20 text-indigo-100 text-sm">HTML</span>
+            <span class="px-3 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-400/20 text-emerald-100 text-sm">CSS</span>
+            <span class="px-3 py-1.5 rounded-full bg-fuchsia-500/15 border border-fuchsia-400/20 text-fuchsia-100 text-sm">JavaScript</span>
+            <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-200 text-sm">Responsive UI</span>
+            <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-200 text-sm">Cross-browser</span>
+            <span class="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-200 text-sm">Performance</span>
+          </div>
+
+          <div class="mt-7 flex flex-wrap gap-3">
+            <a class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-500 hover:bg-indigo-400 text-white font-medium" href="#project">
+              View Project
+              <span aria-hidden="true">→</span>
+            </a>
+            <button id="copyEmailBtn" type="button" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-slate-100">
+              Copy Email
+              <span class="text-slate-300" aria-hidden="true">⧉</span>
+            </button>
+            <a class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-slate-100" href="https://ncert-chatbot-eta.vercel.app/" target="_blank" rel="noreferrer">
+              Open Live Project
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <div id="toast" class="pointer-events-none fixed left-1/2 -translate-x-1/2 bottom-6 z-50 hidden">
+            <div class="px-4 py-3 rounded-xl border border-white/10 bg-slate-900/80 glass text-sm text-slate-100 shadow-lg">
+              <span id="toastText">Copied!</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="md:col-span-5">
+          <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h2 class="text-lg font-semibold">Personal Details</h2>
+                <p class="mt-1 text-sm text-slate-300">Quick snapshot</p>
+              </div>
+              <div class="h-10 w-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center" aria-hidden="true">📌</div>
+            </div>
+
+            <dl class="mt-4 grid gap-3 text-sm">
+              <div class="flex items-center justify-between gap-3">
+                <dt class="text-slate-300">Name</dt>
+                <dd class="font-medium text-slate-100">Mukesh Kumar</dd>
+              </div>
+              <div class="flex items-center justify-between gap-3">
+                <dt class="text-slate-300">Skills</dt>
+                <dd class="font-medium text-slate-100">HTML, CSS, JavaScript</dd>
+              </div>
+              <div class="flex items-center justify-between gap-3">
+                <dt class="text-slate-300">Email</dt>
+                <dd class="font-medium text-slate-100">
+                  <a class="hover:underline" href="mailto:mk0592497@gmail.com">mk0592497@gmail.com</a>
+                </dd>
+              </div>
+              <div class="flex items-center justify-between gap-3">
+                <dt class="text-slate-300">Project</dt>
+                <dd class="font-medium text-slate-100 text-right">
+                  <a class="hover:underline" href="https://ncert-chatbot-eta.vercel.app/" target="_blank" rel="noreferrer">NCERT Chatbot</a>
+                </dd>
+              </div>
+            </dl>
+
+            <div class="mt-5 rounded-xl border border-white/10 bg-slate-950/40 p-4">
+              <div class="text-xs uppercase tracking-wide text-slate-300">Objective</div>
+              <p class="mt-2 text-sm leading-relaxed text-slate-100">
+                Develop a complete web application by integrating HTML, CSS, and JavaScript, while ensuring performance, responsiveness, and cross-browser compatibility.
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-4 rounded-2xl border border-white/10 bg-white/5 p-5">
+            <h3 class="font-semibold">Compatibility & Performance</h3>
+            <p class="mt-2 text-sm text-slate-300 leading-relaxed">
+              This page is built as a single static HTML file with minimal dependencies, responsive layout, accessible focus states, and reduced-motion support.
+            </p>
+            <div class="mt-4 grid grid-cols-2 gap-3">
+              <div class="rounded-xl border border-white/10 bg-white/5 p-3">
+                <div class="text-xs text-slate-300">Responsive</div>
+                <div class="mt-1 font-semibold">Mobile → Desktop</div>
+              </div>
+              <div class="rounded-xl border border-white/10 bg-white/5 p-3">
+                <div class="text-xs text-slate-300">Cross-browser</div>
+                <div class="mt-1 font-semibold">Modern browsers</div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-10 border-t border-white/10">
+      <div class="grid md:grid-cols-12 gap-6 items-start">
+        <div class="md:col-span-5">
+          <h2 class="text-2xl md:text-3xl font-semibold">Project Overview</h2>
+          <p class="mt-3 text-slate-300 leading-relaxed">
+            This capstone is a fully functional web application developed using HTML, CSS, and JavaScript. It demonstrates practical frontend development concepts including responsive design, dynamic user interaction, and efficient data handling.
+          </p>
+        </div>
+        <div class="md:col-span-7">
+          <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+            <h3 class="font-semibold">What this demonstrates</h3>
+            <ul class="mt-3 grid sm:grid-cols-2 gap-3 text-sm text-slate-200">
+              <li class="rounded-xl border border-white/10 bg-slate-950/40 p-4">
+                <div class="font-medium">Clean UI</div>
+                <div class="mt-1 text-slate-300">Structured layout & readable typography.</div>
+              </li>
+              <li class="rounded-xl border border-white/10 bg-slate-950/40 p-4">
+                <div class="font-medium">Interactive UX</div>
+                <div class="mt-1 text-slate-300">Accordions, copy actions, smooth navigation.</div>
+              </li>
+              <li class="rounded-xl border border-white/10 bg-slate-950/40 p-4">
+                <div class="font-medium">Performance mindset</div>
+                <div class="mt-1 text-slate-300">Reduced motion support and minimal JS.</div>
+              </li>
+              <li class="rounded-xl border border-white/10 bg-slate-950/40 p-4">
+                <div class="font-medium">Responsive layout</div>
+                <div class="mt-1 text-slate-300">Works across mobile, tablet, and desktop.</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project -->
+    <section id="project" class="py-10 border-t border-white/10">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-semibold">Capstone: NCERT Chatbot</h2>
+          <p class="mt-2 text-slate-300">A real-world web app showcasing practical frontend implementation.</p>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <a class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold" href="https://ncert-chatbot-eta.vercel.app/" target="_blank" rel="noreferrer">Visit Live</a>
+          <button id="copyLinkBtn" type="button" class="px-4 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10">Copy Link</button>
+        </div>
+      </div>
+
+      <div class="mt-6 grid lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-7 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <h3 class="font-semibold">Highlights</h3>
+          <ul class="mt-3 space-y-3 text-sm text-slate-200">
+            <li class="flex gap-3">
+              <span class="mt-0.5 h-6 w-6 rounded-lg bg-indigo-500/20 border border-indigo-400/20 inline-flex items-center justify-center" aria-hidden="true">1</span>
+              <div>
+                <div class="font-medium">Interactive features</div>
+                <div class="text-slate-300">Smooth user interactions using JavaScript-driven UI patterns.</div>
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-0.5 h-6 w-6 rounded-lg bg-emerald-500/20 border border-emerald-400/20 inline-flex items-center justify-center" aria-hidden="true">2</span>
+              <div>
+                <div class="font-medium">Clean, structured design</div>
+                <div class="text-slate-300">Readable layout with consistent spacing and typography.</div>
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <span class="mt-0.5 h-6 w-6 rounded-lg bg-fuchsia-500/20 border border-fuchsia-400/20 inline-flex items-center justify-center" aria-hidden="true">3</span>
+              <div>
+                <div class="font-medium">Efficient handling</div>
+                <div class="text-slate-300">Optimized CSS/JS patterns for smooth performance and fast loading.</div>
+              </div>
+            </li>
+          </ul>
+
+          <div class="mt-5 rounded-xl border border-white/10 bg-slate-950/40 p-4">
+            <div class="flex items-center justify-between gap-3">
+              <div>
+                <div class="text-xs uppercase tracking-wide text-slate-300">Project Link</div>
+                <div class="mt-1 font-medium break-all">https://ncert-chatbot-eta.vercel.app/</div>
+              </div>
+              <a class="shrink-0 px-3 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10" href="https://ncert-chatbot-eta.vercel.app/" target="_blank" rel="noreferrer" aria-label="Open project in new tab">↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 rounded-2xl border border-white/10 bg-white/5 p-5">
+          <h3 class="font-semibold">Quick Checklist</h3>
+          <p class="mt-2 text-sm text-slate-300">A compact view of your stated objectives and implementation.</p>
+
+          <div class="mt-4 space-y-3">
+            <div class="rounded-xl border border-white/10 bg-slate-950/40 p-4">
+              <div class="flex items-center justify-between">
+                <div class="font-medium">Full web application</div>
+                <span class="text-xs px-2 py-1 rounded-lg bg-emerald-500/15 border border-emerald-400/20 text-emerald-100">Done</span>
+              </div>
+              <div class="mt-2 text-sm text-slate-300">Integrated HTML, CSS, and JavaScript into one complete product.</div>
+            </div>
+
+            <div class="rounded-xl border border-white/10 bg-slate-950/40 p-4">
+              <div class="flex items-center justify-between">
+                <div class="font-medium">Performance optimization</div>
+                <span class="text-xs px-2 py-1 rounded-lg bg-indigo-500/15 border border-indigo-400/20 text-indigo-100">Improved</span>
+              </div>
+              <div class="mt-2 text-sm text-slate-300">Reduced unnecessary resource usage; improved perceived speed.</div>
+            </div>
+
+            <div class="rounded-xl border border-white/10 bg-slate-950/40 p-4">
+              <div class="flex items-center justify-between">
+                <div class="font-medium">Cross-browser + responsive</div>
+                <span class="text-xs px-2 py-1 rounded-lg bg-fuchsia-500/15 border border-fuchsia-400/20 text-fuchsia-100">Tested</span>
+              </div>
+              <div class="mt-2 text-sm text-slate-300">Designed for mobile, tablet, desktop and tested across browsers.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Steps (Accordion) -->
+    <section id="steps" class="py-10 border-t border-white/10">
+      <div class="flex items-end justify-between gap-4">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-semibold">Steps</h2>
+          <p class="mt-2 text-slate-300">A structured breakdown of the approach and outcomes.</p>
+        </div>
+        <div class="hidden sm:flex gap-2">
+          <button id="expandAllBtn" type="button" class="px-3 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-sm">Expand all</button>
+          <button id="collapseAllBtn" type="button" class="px-3 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-sm">Collapse all</button>
+        </div>
+      </div>
+
+      <div class="mt-6 grid gap-3">
+        <article class="step rounded-2xl border border-white/10 bg-white/5 overflow-hidden" data-open="true">
+          <button class="stepBtn w-full text-left p-5 flex items-start justify-between gap-4" type="button" aria-expanded="true">
+            <div>
+              <div class="text-xs uppercase tracking-wide text-slate-300">Step 1</div>
+              <h3 class="mt-1 text-lg font-semibold">Build a Full Web Application (Capstone Project)</h3>
+              <p class="mt-1 text-sm text-slate-300">Integrate all learned skills into one complete web application.</p>
+            </div>
+            <span class="stepIcon mt-2 text-slate-300" aria-hidden="true">−</span>
+          </button>
+          <div class="stepBody px-5 pb-5">
+            <div class="rounded-xl border border-white/10 bg-slate-950/40 p-4 text-sm text-slate-200">
+              <div class="font-medium">Implementation</div>
+              <p class="mt-1 text-slate-300 leading-relaxed">
+                Developed a functional project (NCERT Chatbot) with interactive features, clean UI, and structured design using core web technologies.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="step rounded-2xl border border-white/10 bg-white/5 overflow-hidden" data-open="false">
+          <button class="stepBtn w-full text-left p-5 flex items-start justify-between gap-4" type="button" aria-expanded="false">
+            <div>
+              <div class="text-xs uppercase tracking-wide text-slate-300">Step 2</div>
+              <h3 class="mt-1 text-lg font-semibold">Optimize for Performance</h3>
+              <p class="mt-1 text-sm text-slate-300">Ensure fast loading and efficient performance.</p>
+            </div>
+            <span class="stepIcon mt-2 text-slate-300" aria-hidden="true">+</span>
+          </button>
+          <div class="stepBody hidden px-5 pb-5">
+            <div class="rounded-xl border border-white/10 bg-slate-950/40 p-4 text-sm text-slate-200">
+              <div class="font-medium">Implementation</div>
+              <ul class="mt-2 list-disc pl-5 text-slate-300 space-y-1">
+                <li>Optimized CSS and JavaScript for better performance</li>
+                <li>Reduced unnecessary resource usage</li>
+                <li>Ensured smooth user experience</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="step rounded-2xl border border-white/10 bg-white/5 overflow-hidden" data-open="false">
+          <button class="stepBtn w-full text-left p-5 flex items-start justify-between gap-4" type="button" aria-expanded="false">
+            <div>
+              <div class="text-xs uppercase tracking-wide text-slate-300">Step 3</div>
+              <h3 class="mt-1 text-lg font-semibold">Ensure Cross-Browser Compatibility & Responsiveness</h3>
+              <p class="mt-1 text-sm text-slate-300">Accessible across devices and browsers.</p>
+            </div>
+            <span class="stepIcon mt-2 text-slate-300" aria-hidden="true">+</span>
+          </button>
+          <div class="stepBody hidden px-5 pb-5">
+            <div class="rounded-xl border border-white/10 bg-slate-950/40 p-4 text-sm text-slate-200">
+              <div class="font-medium">Implementation</div>
+              <ul class="mt-2 list-disc pl-5 text-slate-300 space-y-1">
+                <li>Tested on multiple browsers</li>
+                <li>Ensured responsive design for mobile, tablet, and desktop</li>
+                <li>Fixed layout and compatibility issues</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="sm:hidden mt-5 flex gap-2">
+        <button id="expandAllBtn2" type="button" class="flex-1 px-3 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-sm">Expand all</button>
+        <button id="collapseAllBtn2" type="button" class="flex-1 px-3 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 text-sm">Collapse all</button>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-10 border-t border-white/10">
+      <div class="grid md:grid-cols-12 gap-6 items-start">
+        <div class="md:col-span-6">
+          <h2 class="text-2xl md:text-3xl font-semibold">Contact</h2>
+          <p class="mt-2 text-slate-300 leading-relaxed">
+            Reach out for collaborations or frontend development opportunities.
+          </p>
+
+          <div class="mt-5 rounded-2xl border border-white/10 bg-white/5 p-5">
+            <div class="grid gap-3 text-sm">
+              <div class="flex items-center justify-between gap-3">
+                <div class="text-slate-300">Email</div>
+                <div class="font-medium"><a class="hover:underline" href="mailto:mk0592497@gmail.com">mk0592497@gmail.com</a></div>
+              </div>
+              <div class="flex items-center justify-between gap-3">
+                <div class="text-slate-300">Project</div>
+                <div class="font-medium"><a class="hover:underline" href="https://ncert-chatbot-eta.vercel.app/" target="_blank" rel="noreferrer">ncert-chatbot-eta.vercel.app</a></div>
+              </div>
+            </div>
+
+            <div class="mt-4 flex flex-wrap gap-2">
+              <button id="emailMeBtn" class="px-4 py-2 rounded-xl bg-indigo-500 hover:bg-indigo-400 text-white font-medium" type="button">Email Me</button>
+              <button id="downloadBtn" class="px-4 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10" type="button">Download Summary (TXT)</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="md:col-span-6">
+          <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+            <h3 class="font-semibold">Live Preview Tip</h3>
+            <p class="mt-2 text-sm text-slate-300 leading-relaxed">
+              Use the buttons to copy your email/project link. The page also supports keyboard navigation, reduced motion, and a theme toggle.
+            </p>
+            <div class="mt-4 rounded-xl border border-white/10 bg-slate-950/40 p-4">
+              <div class="text-xs uppercase tracking-wide text-slate-300">Keyboard</div>
+              <div class="mt-2 text-sm text-slate-200">
+                Press <span class="px-2 py-0.5 rounded-lg bg-white/5 border border-white/10">Tab</span> to navigate and <span class="px-2 py-0.5 rounded-lg bg-white/5 border border-white/10">Enter</span> to activate controls.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="py-10 border-t border-white/10">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-sm text-slate-300">
+        <div>© <span id="year"></span> Mukesh Kumar. Built with HTML, CSS & JavaScript.</div>
+        <a class="hover:underline" href="#top">Back to top</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      const state = {
+        theme: localStorage.getItem('mk_theme') || 'dark'
+      };
+
+      const els = {
+        year: document.getElementById('year'),
+        themeBtn: document.getElementById('themeBtn'),
+        menuBtn: document.getElementById('menuBtn'),
+        mobileMenu: document.getElementById('mobileMenu'),
+        copyEmailBtn: document.getElementById('copyEmailBtn'),
+        copyLinkBtn: document.getElementById('copyLinkBtn'),
+        emailMeBtn: document.getElementById('emailMeBtn'),
+        downloadBtn: document.getElementById('downloadBtn'),
+        toast: document.getElementById('toast'),
+        toastText: document.getElementById('toastText'),
+        expandAllBtn: document.getElementById('expandAllBtn'),
+        collapseAllBtn: document.getElementById('collapseAllBtn'),
+        expandAllBtn2: document.getElementById('expandAllBtn2'),
+        collapseAllBtn2: document.getElementById('collapseAllBtn2')
+      };
+
+      // Year
+      els.year.textContent = new Date().getFullYear();
+
+      // Smooth scrolling (respect reduced motion)
+      const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!prefersReducedMotion) {
+        document.documentElement.style.scrollBehavior = 'smooth';
+      }
+
+      // Theme handling (dark/light)
+      function applyTheme(theme) {
+        const isLight = theme === 'light';
+        document.documentElement.style.colorScheme = isLight ? 'light' : 'dark';
+
+        // Toggle body palette with a class switch
+        document.body.classList.toggle('bg-slate-950', !isLight);
+        document.body.classList.toggle('text-slate-100', !isLight);
+        document.body.classList.toggle('bg-slate-50', isLight);
+        document.body.classList.toggle('text-slate-900', isLight);
+
+        // Tweak some common text colors for light mode
+        // Instead of rewriting every class, we set a data attribute and patch a few groups.
+        document.documentElement.dataset.theme = theme;
+
+        els.themeBtn.setAttribute('aria-pressed', String(isLight));
+        state.theme = theme;
+        localStorage.setItem('mk_theme', theme);
+      }
+
+      // Minimal light-mode adjustments
+      const lightModeStyle = document.createElement('style');
+      lightModeStyle.id = 'lightModePatch';
+      lightModeStyle.textContent = `
+        html[data-theme="light"] .glass { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+        html[data-theme="light"] body { background: #f8fafc; }
+        html[data-theme="light"] header { background: rgba(248, 250, 252, 0.75) !important; }
+        html[data-theme="light"] .text-slate-300 { color: rgba(15, 23, 42, 0.70) !important; }
+        html[data-theme="light"] .text-slate-200, html[data-theme="light"] .text-slate-200\/90 { color: rgba(15, 23, 42, 0.86) !important; }
+        html[data-theme="light"] .border-white\/10 { border-color: rgba(15, 23, 42, 0.10) !important; }
+        html[data-theme="light"] .bg-white\/5 { background-color: rgba(15, 23, 42, 0.04) !important; }
+        html[data-theme="light"] .bg-white\/10 { background-color: rgba(15, 23, 42, 0.06) !important; }
+        html[data-theme="light"] .bg-slate-950\/40 { background-color: rgba(255, 255, 255, 0.70) !important; }
+        html[data-theme="light"] .bg-slate-900\/80 { background-color: rgba(255, 255, 255, 0.85) !important; }
+        html[data-theme="light"] .selection\:bg-indigo-500\/30::selection { background: rgba(99, 102, 241, 0.25) !important; }
+      `;
+      document.head.appendChild(lightModeStyle);
+
+      applyTheme(state.theme);
+
+      els.themeBtn.addEventListener('click', () => {
+        applyTheme(state.theme === 'dark' ? 'light' : 'dark');
+      });
+
+      // Mobile menu
+      els.menuBtn?.addEventListener('click', () => {
+        const isOpen = els.menuBtn.getAttribute('aria-expanded') === 'true';
+        els.menuBtn.setAttribute('aria-expanded', String(!isOpen));
+        els.mobileMenu.classList.toggle('hidden', isOpen);
+      });
+
+      // Close mobile menu on click
+      els.mobileMenu?.addEventListener('click', (e) => {
+        const a = e.target.closest('a');
+        if (!a) return;
+        els.menuBtn.setAttribute('aria-expanded', 'false');
+        els.mobileMenu.classList.add('hidden');
+      });
+
+      // Toast
+      let toastTimer = null;
+      function showToast(message) {
+        els.toastText.textContent = message;
+        els.toast.classList.remove('hidden');
+        window.clearTimeout(toastTimer);
+        toastTimer = window.setTimeout(() => {
+          els.toast.classList.add('hidden');
+        }, 1600);
+      }
+
+      async function copyToClipboard(text) {
+        try {
+          if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            // Fallback
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.focus();
+            ta.select();
+            document.execCommand('copy');
+            ta.remove();
+          }
+          return true;
+        } catch {
+          return false;
+        }
+      }
+
+      // Copy actions
+      els.copyEmailBtn?.addEventListener('click', async () => {
+        const ok = await copyToClipboard('mk0592497@gmail.com');
+        showToast(ok ? 'Email copied to clipboard' : 'Copy failed (browser blocked)');
+      });
+
+      els.copyLinkBtn?.addEventListener('click', async () => {
+        const ok = await copyToClipboard('https://ncert-chatbot-eta.vercel.app/');
+        showToast(ok ? 'Project link copied' : 'Copy failed (browser blocked)');
+      });
+
+      els.emailMeBtn?.addEventListener('click', () => {
+        window.location.href = 'mailto:mk0592497@gmail.com?subject=' + encodeURIComponent('Hello Mukesh — Frontend Opportunity');
+      });
+
+      // Download summary
+      els.downloadBtn?.addEventListener('click', () => {
+        const lines = [
+          'Mukesh Kumar',
+          'Skills: HTML, CSS, JavaScript',
+          'Email: mk0592497@gmail.com',
+          'Project: https://ncert-chatbot-eta.vercel.app/',
+          '',
+          'Objective:',
+          'Develop a complete web application by integrating HTML, CSS, and JavaScript, while ensuring performance, responsiveness, and cross-browser compatibility.',
+          '',
+          'Steps:',
+          '1) Build a Full Web Application (Capstone Project): Developed NCERT Chatbot with interactive features, clean UI, structured design.',
+          '2) Optimize for Performance: Optimized CSS/JS, reduced unnecessary resources, ensured smooth UX.',
+          '3) Cross-Browser & Responsive: Tested on multiple browsers, responsive for mobile/tablet/desktop, fixed layout issues.'
+        ];
+
+        const blob = new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'MukeshKumar_Capstone_Summary.txt';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+        showToast('Summary downloaded');
+      });
+
+      // Accordion
+      const steps = Array.from(document.querySelectorAll('.step'));
+
+      function setStepOpen(stepEl, open) {
+        const btn = stepEl.querySelector('.stepBtn');
+        const body = stepEl.querySelector('.stepBody');
+        const icon = stepEl.querySelector('.stepIcon');
+
+        stepEl.dataset.open = String(open);
+        btn.setAttribute('aria-expanded', String(open));
+        if (open) {
+          body.classList.remove('hidden');
+          icon.textContent = '−';
+        } else {
+          body.classList.add('hidden');
+          icon.textContent = '+';
+        }
+      }
+
+      // Initialize from data-open
+      steps.forEach(s => setStepOpen(s, s.dataset.open === 'true'));
+
+      steps.forEach(stepEl => {
+        const btn = stepEl.querySelector('.stepBtn');
+        btn.addEventListener('click', () => {
+          const isOpen = stepEl.dataset.open === 'true';
+          setStepOpen(stepEl, !isOpen);
+        });
+      });
+
+      function expandAll() { steps.forEach(s => setStepOpen(s, true)); }
+      function collapseAll() { steps.forEach(s => setStepOpen(s, false)); }
+
+      [els.expandAllBtn, els.expandAllBtn2].forEach(b => b?.addEventListener('click', expandAll));
+      [els.collapseAllBtn, els.collapseAllBtn2].forEach(b => b?.addEventListener('click', collapseAll));
+
+      // Improve anchor offset for sticky header
+      function getHeaderOffset() {
+        const header = document.querySelector('header');
+        return header ? header.getBoundingClientRect().height + 8 : 0;
+      }
+
+      document.addEventListener('click', (e) => {
+        const a = e.target.closest('a[href^="#"]');
+        if (!a) return;
+        const id = a.getAttribute('href');
+        if (!id || id === '#') return;
+        const target = document.querySelector(id);
+        if (!target) return;
+
+        e.preventDefault();
+        const y = window.scrollY + target.getBoundingClientRect().top - getHeaderOffset();
+        window.scrollTo({ top: y, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+      });
+
+      // Basic runtime checks (non-invasive)
+      window.addEventListener('error', () => {
+        showToast('A script error occurred');
+      });
+    })();
+  </script>
+</body>
+</html>
